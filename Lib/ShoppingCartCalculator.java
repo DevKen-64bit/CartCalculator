@@ -4,12 +4,15 @@ import java.util.ArrayList;
 public class ShoppingCartCalculator {
 
     /**
-     * เขียน Javadoc ที่นี่เพื่ออธิบายกฎการทำงานและกรณีพิเศษ:
-     * - จะทำอย่างไรถ้า items เป็น null หรือ empty?
-     * - จะทำอย่างไรถ้า CartItem มี price หรือ quantity ติดลบ?
-     * - กฎส่วนลด BOGO (ซื้อ 1 แถม 1)
-     * - กฎส่วนลด BULK (ซื้อ >= 6 ชิ้น ลด 10%)
-     */
+     *  เมธอดนี้ทำการตรวจสอบความถูกต้องของข้อมูลและคำนวณราคาที่ต้องจ่าย String sku, String name, double price, int quantity
+     *  โดย sku มี NORMAL BOGO BULK 
+     *  NORMAL คือการคิดราคาสินค้าตามปกติ
+     *  BULK คือการคิดราคาสินค้า โดยที่มีสินค้าตั้งแต่ 6 ชิ้นขึ้นไปคือ
+     *  BOGO คือการคิดราคาสินค้าแบบ 1 แถม 1
+     *  โดยถ้าหารใส่ sku นอกเหนือจากนี้จะไม่สามารถคิด๑ราคาแล้ว return กลับ 0.0
+     *  @param String sku, String name, double price, int quantity
+     *  @return ราคาสินค้าที่ได้จากการคำนวณ
+     */ 
     public static double calculateTotalPrice(ArrayList<CartItem> items) {
         
         //เช็คว่าเป็น null หรือ empty หรือไม่
